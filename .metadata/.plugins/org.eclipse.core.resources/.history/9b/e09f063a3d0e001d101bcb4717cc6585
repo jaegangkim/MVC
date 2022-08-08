@@ -1,0 +1,29 @@
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+@WebServlet("/fs.do")
+// Servlet : 클라이언트의 요청을 받는 역할
+public class FirstServlet extends HttpServlet {  
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+									throws ServletException, IOException {
+		
+		// 1. 비즈니스로직(처리로직)
+		// 1~10까지의 총합=?
+		MyUtil my = new MyUtil();
+		int sum = my.hap();
+		// 2. 프리젠테이션 로직(화면구성로직)
+		// 요청한 클라이언트에게 응답
+		PrintWriter out = response.getWriter();
+		out.println("<html>");
+		out.println("<body>");
+		out.println(sum);
+		out.println("</html>");
+		out.println("</body>");
+		
+	}
+
+}

@@ -1,0 +1,13 @@
+package kr.board.dao;
+//jdbc
+import java.sql.*;
+public class BoardDAO {
+	private Connection conn;
+	private PreparedStatement ps;
+	private ResultSet rs;
+	
+	public Connection getConnect() {
+		// ojdvc6.jar를 webapp/web-inf/lib에 넣기
+		
+	}
+}
