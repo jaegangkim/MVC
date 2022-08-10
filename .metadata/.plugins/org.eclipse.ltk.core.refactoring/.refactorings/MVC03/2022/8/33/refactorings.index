@@ -2,3 +2,6 @@
 1659944705455	Rename resource 'JSTL01_fir.jsp'
 1659944716608	Rename resource 'JSTL02.jsp'
 1659944721696	Rename resource 'JSTL03.jsp'
+1660031886247	Move compilation unit
+1660035051768	Move 'board' to 'WEB-INF'
+1660035165511	Move 'header' to 'WEB-INF'

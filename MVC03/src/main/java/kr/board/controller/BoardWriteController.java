@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import kr.board.dao.BoardDAO;
 import kr.board.entity.Board;
 
-@WebServlet("/boardWrite.do")
 public class BoardWriteController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 파라메터 수집

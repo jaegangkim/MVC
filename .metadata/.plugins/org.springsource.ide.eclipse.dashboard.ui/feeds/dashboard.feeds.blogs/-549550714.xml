@@ -5,7 +5,32 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2022-08-04T09:00:00Z</updated>
+  <updated>2022-08-09T08:00:00Z</updated>
+  <entry>
+    <title>This Week in Spring - August 9th, 2022</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/08/09/this-week-in-spring-august-9th-2022" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2022-08-09:4875</id>
+    <updated>2022-08-09T08:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! How are you this fine Tuesday? I&amp;rsquo;m in Kansas City for the Kansas City Developer Conference. It&amp;rsquo;s a crazy fun show, and I&amp;rsquo;m glad to be here. I only wish the rest of you were here, too! We&amp;rsquo;ve got a packed &lt;em&gt;This Week in Spring&lt;/em&gt;, however, so let&amp;rsquo;s dive right into it.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://github.com/snicoll/demo-aot-native"&gt;snicoll/demo-aot-native: Demo of a basic webapp using Ahead-Of-Time compilation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/08/04/a-bootiful-podcast-observability-guru-jonatan-ivanov-on-the-future-of-observability-in-spring-boot"&gt;A Bootiful Podcast: Observability guru Jonatan Ivanov on the future of observability in Spring Boot&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2022/08/04/upcoming-changes-in-kubernetes-1-25/"&gt;Blog: Kubernetes Removals and Major Changes In 1.25&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://tanzu.vmware.com/developer/blog/building-topic-exchange-rabbitmq-dotnet6/"&gt;Building a Topic Exchange with RabbitMQ and .NET 6&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/705301736/0/baeldung~Display-Loggedin-Users-Information-in-Thymeleaf"&gt;Display Logged-in User’s Information in Thymeleaf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/705280212/0/baeldung~Dockerizing-a-Java-Application"&gt;Dockerizing a Java Application&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://developer.okta.com/blog/2022/08/05/spring-boot-saml"&gt;Get Started with Spring Boot and SAML&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://dzone.com/articles/resilient-kafka-consumers-with-reactor-kafka"&gt;Resilient Kafka Consumers With Reactor Kafka - DZone Java&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://didipostman.hashnode.dev/spring-batch-karp-rabin-how-crispr-cas9-works"&gt;Spring Batch + Karp Rabin = How CRISPR CAS9 Works&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/08/04/spring-tools-4-15-2-released"&gt;Spring Tools 4.15.2 released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/705215824/0/baeldung~Upload-Image-With-Spring-Boot-and-Thymeleaf"&gt;Upload Image With Spring Boot and Thymeleaf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>A Bootiful Podcast: Observability guru Jonatan Ivanov on the future of observability in Spring Boot</title>
     <link rel="alternate" href="https://spring.io/blog/2022/08/04/a-bootiful-podcast-observability-guru-jonatan-ivanov-on-the-future-of-observability-in-spring-boot" />
@@ -1114,48 +1139,6 @@ When separating by the database, you might use &lt;code&gt;AbstractRoutingDataSo
   &lt;li&gt;&lt;a href="https://spring.io/blog/2022/07/18/spring-security-5-8-0-m1-and-6-0-0-m6-are-released"&gt;Spring Security 5.8.0-M1 and 6.0.0-M6 are released&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="https://spring.io/blog/2022/07/17/spring-tips-kubernetes-native-java-redux-2022"&gt;Spring Tips: Kubernetes Native Java (Redux, 2022)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Security 5.8.0-M1 and 6.0.0-M6 are released</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/07/18/spring-security-5-8-0-m1-and-6-0-0-m6-are-released" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Cummings</name>
-    </author>
-    <id>tag:spring.io,2022-07-18:4856</id>
-    <updated>2022-07-18T19:00:00Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the team and everyone who has contributed, I am pleased to announce that Spring Security &lt;code&gt;5.8.0-M1&lt;/code&gt; and &lt;code&gt;6.0.0-M6&lt;/code&gt; are available now.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;This release includes dependency upgrades, bug fixes, and enhancements. Here are a few noteworthy changes:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/10913"&gt;Deferred SecurityContext lookup&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/10973"&gt;SecurityContextHolderStrategy Bean lookup&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/9290"&gt;AuthorizationManager support&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/8549"&gt;SHA-256 RememberMe support&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/10451"&gt;Release automation improvements&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;See the &lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.8.0-M1"&gt;5.8.0-M1&lt;/a&gt; and &lt;a href="https://github.com/spring-projects/spring-security/releases/tag/6.0.0-M6"&gt;6.0.0-M6&lt;/a&gt; release notes for more details.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security/"&gt;Project Site&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-security/reference/"&gt;Reference&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-security"&gt;Help&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
