@@ -10,6 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.board.controller.BoardDeleteController;
+import kr.board.controller.BoardListController;
+import kr.board.controller.BoardUpdateController;
+import kr.board.controller.BoardUpdateFormController;
+import kr.board.controller.BoardViewController;
+import kr.board.controller.BoardWriteController;
+import kr.board.controller.BoardWriteFormController;
+import kr.board.controller.Controller;
 import kr.board.dao.BoardDAO;
 import kr.board.entity.Board;
 
@@ -28,61 +36,35 @@ public class BoardFrontController extends HttpServlet {
 		
 		// 2. command에 따른 분기작업(if~else if~)
 		String nextPage=null;
-		BoardDAO dao = new BoardDAO();
+		// HandlerMapping
+		Controller controller=null;
 		if(command.equals("/boardList.do")) {
-			// 리스트 화면으로
-			List<Board> list = dao.allList();
-			// View에 forward
-			request.setAttribute("list", list);
-			nextPage="WEB-INF/board/boardList.jsp";
+			controller = new BoardListController();
+			nextPage = controller.requestProcessor(request, response);
 		}else if(command.equals("/boardWriteForm.do")) {
-			// 글쓰기화면으로
-			nextPage="WEB-INF/board/boardWrite.jsp";
+			controller = new BoardWriteFormController();
+			nextPage = controller.requestProcessor(request, response);
 		}else if(command.equals("/boardWrite.do")) {
-			// 글쓰기 처리
-			String title = request.getParameter("title");
-			String content = request.getParameter("content");
-			String writer = request.getParameter("writer");
-			Board vo = new Board();
-			vo.setTitle(title);
-			vo.setContent(content);
-			vo.setWriter(writer);
-			dao.boardWrite(vo);
-			nextPage="redirect:/boardList.do";
+			controller = new BoardWriteController();
+			nextPage = controller.requestProcessor(request, response);
 		}else if(command.equals("/boardView.do")) {
-			// 상세보기 처리 -> JSP
-			int num = Integer.parseInt(request.getParameter("num"));
-			Board vo = dao.boardView(num);
-			request.setAttribute("vo", vo);
-			nextPage="WEB-INF/board/boardView.jsp";
+			controller = new BoardViewController();
+			nextPage = controller.requestProcessor(request, response);
 		}else if(command.equals("/boardDelete.do")) {
-			//삭제처리 -> 리스트로
-			int num = Integer.parseInt(request.getParameter("num"));
-			dao.boardDelete(num);
-			nextPage="redirect:/boardList.do";
+			controller = new BoardDeleteController();
+			nextPage = controller.requestProcessor(request, response);
 		}else if(command.equals("/boardUpdateForm.do")) {
-			// 수정데이터 -> 수정화면(JSP)
-			int num = Integer.parseInt(request.getParameter("num"));
-			Board vo = dao.boardView(num);
-			request.setAttribute("vo", vo);
-			nextPage="WEB-INF/board/boardUpdate.jsp";
+			controller = new BoardUpdateFormController();
+			nextPage = controller.requestProcessor(request, response);
 		}else if(command.equals("/boardUpdate.do")) {
-			// 수정처리 -> 리스트로
-			int num = Integer.parseInt(request.getParameter("num"));
-			String content = request.getParameter("content");
-			String title = request.getParameter("title");
-			Board vo = new Board();
-			vo.setTitle(title);
-			vo.setContent(content);
-			vo.setNum(num);
-			dao.boardUpdate(vo);
-			nextPage="redirect:/boardList.do";
+			controller = new BoardUpdateController();
+			nextPage = controller.requestProcessor(request, response);
 		}
 		// 3. View(JSP=forward) or 다른 컨트롤러로(redirect)로 경로를 변경하는 작업 
 		if(nextPage!=null) {
 			if(nextPage.indexOf("redirect:")==-1) {
 				//forward
-				RequestDispatcher rd = request.getRequestDispatcher(nextPage);
+				RequestDispatcher rd = request.getRequestDispatcher(ViewResolver.makeView(nextPage));
 				rd.forward(request, response);
 			}else {
 				//redirect
