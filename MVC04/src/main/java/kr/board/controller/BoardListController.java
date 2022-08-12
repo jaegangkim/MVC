@@ -10,13 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.board.dao.BoardDAO;
+import kr.board.dao.BoardMyBatisDAO;
 import kr.board.entity.Board;
 // Servlet -> POJO ( extends 삭제 )
 public class BoardListController implements Controller{
 	public String requestProcessor(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		BoardDAO dao=new BoardDAO();
+//		BoardDAO dao=new BoardDAO();
+		BoardMyBatisDAO dao=new BoardMyBatisDAO();
 		List<Board> list = dao.allList();
 		// View에 forward
 		request.setAttribute("list", list);

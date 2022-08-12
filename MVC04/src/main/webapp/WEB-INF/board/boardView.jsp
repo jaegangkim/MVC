@@ -29,7 +29,7 @@
 <body>
  <jsp:include page="../header/header.jsp"/>
 <div class="container">
-  <h2>MVC03</h2>
+  <h2>MVC04</h2>
   <div class="panel panel-default">
     <div class="panel-heading">BOARD</div>
     <div class="panel-body">

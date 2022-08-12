@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.board.dao.BoardMapper">
+ 
+ <!-- 게시판 전체리스트를 가져오는 SQL-->
+ <select id="allList" resultType="kr.board.entity.Board">
+ 	select * from board order by num
+ </select>
+  <select id="boardWrite" parameterType="kr.board.entity.Board">
+ 	insert into board(num,title,content,writer)
+ 	values(board_num.nextval,#{title},#{content},#{writer})
+ </select>
+ <delete id="boardDelete" parameterType="int"> <!--int 하나라서 타입 생략 가능-->
+ 	delete from board where num=#{num}
+ </delete>
+ <select id="boardView" resultType="kr.board.entity.Board"> 
+ 	select * from board where num=#{num}
+ </select>
+ <update id="boardUpdate" parameterType="kr.board.entity.Board">
+ 	update board set title=#{title},content=#{content} where num=#{num}
+ </update>
+ <update id="countUpdate" parameterType="int">
+ 	update board set count=count+1 where num=#{num}
+ </update>
+</mapper>
