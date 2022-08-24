@@ -72,19 +72,14 @@
 		    	<li><a href="${cpath}/loginForm.do" class="button">Login</a></li>
 		    </c:if>
 		    <c:if test="${!empty mvo}">
-		   		<li><a href="${cpath}/myPage.do">My Page</a></li>
+		   		<li><a href="${cpath}/myPage.do?memId=${mvo.memId}">My Page</a></li>
 			    <li><a href="${cpath}/logout.do" class="button">Logout</a></li>
 		    </c:if>
 			
 		</ul>
 	</nav>
 </header>
-  <%-- <c:if test="${!empty mvo}">
-    <form action="${cpath}/myPage.do">
-        <input type="hidden" name="memId" value="${mvo.memId}">
-        <input type="hidden" name="memPwd" value="${mvo.memPwd}">
-    </form>
-  </c:if> --%>
+  
 			<!-- Banner -->
 				<section id="banner">
 					<h2>Welcome </br>non-Spending Challenge</h2>

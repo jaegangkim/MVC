@@ -29,6 +29,13 @@ public class Member {
 
 	public void setMemPwd(String memPwd) {
 		this.memPwd = memPwd;
+	}
+
+	@Override
+	public String toString() {
+		return "Member [memId=" + memId + ", memName=" + memName + ", memPwd=" + memPwd + "]";
 	};
+	
+	
 	
 }

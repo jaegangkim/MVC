@@ -20,7 +20,7 @@ public class MemberDeleteController implements Controller {
 		dao.memberDelete(memId);
 		HttpSession session =request.getSession();
 		session.invalidate();
-		return "main";
+		return "redirect:/mainForm.do";
 	}
 
 }

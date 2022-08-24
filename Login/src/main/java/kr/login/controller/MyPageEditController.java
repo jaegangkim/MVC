@@ -1,6 +1,7 @@
 package kr.login.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -18,20 +19,28 @@ public class MyPageEditController implements Controller {
 			throws ServletException, IOException {
 		
 		// 여기에 로그인된 memId를 가져와야됨...
-		String memId = request.getParameter("memId"); //??? 로그인 되어있는 회원의 memId를 가져와야되는데 어떻게?
+		String memId = request.getParameter("memId");
 		String memPwd = request.getParameter("memPwd");
 		String memPwd_confirm = request.getParameter("memPwd_confirm");
 		String memName = request.getParameter("memName");
-
+		
+		
+		LoginMyBatisDAO dao = new LoginMyBatisDAO(); 
+		
 		Member m = new Member();
 		if (memPwd.equals(memPwd_confirm)) {
 			m.setMemPwd(memPwd);
 			m.setMemName(memName);
+			m.setMemId(memId);
+			dao.updateMyPage(m);
+		
 		}
 		
+	
+		Member mvo = dao.memberLogin(m);
+		
 		HttpSession session = request.getSession();
-		session.setAttribute("memId",memId);   //
-			
+		session.setAttribute("mvo", mvo);
 		return "redirect:/myPage.do"; // 수정하기 버튼 누르면 바뀐 상태로 다시 수정페이지
 	}
 

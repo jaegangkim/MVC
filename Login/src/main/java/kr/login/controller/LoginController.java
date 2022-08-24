@@ -23,7 +23,7 @@ public class LoginController implements Controller {
 		m.setMemPwd(memPwd);
 		
 		LoginMyBatisDAO dao = new LoginMyBatisDAO();
-		Member mvo = dao.memberLogin(m);
+		Member mvo = dao.memberLogin(m);                 
 		
 		if (mvo!=null) {
 			// 세션을 생성하기

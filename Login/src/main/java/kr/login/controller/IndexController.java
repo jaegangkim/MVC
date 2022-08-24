@@ -16,7 +16,7 @@ public class IndexController implements Controller {
 	public String requestProcessor(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	
-		return "main";
+		return "redirect:/mainForm.do";
 	}
 
 }

@@ -10,9 +10,11 @@
 		insert into member values(#{memId},#{memName},#{memPwd})
 	</insert>
 	<update id="updateMyPage" parameterType="kr.login.entity.Member">
-		update board set memPwd=#{memPwd}, memName=#{memName} where memId=#{memId}
+		update member set memPwd=#{memPwd}, memName=#{memName} where memId=#{memId}
 	</update>
 	<delete id="memberDelete">
-		delete * from member where memId=#{memId}
+		delete from member where memId=#{memId}
 	</delete>
 </mapper>
+
+

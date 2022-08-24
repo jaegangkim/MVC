@@ -47,7 +47,7 @@ public class LoginMyBatisDAO {
 		}
 		public int memberDelete(String memId) {
 			SqlSession session = sqlSessionFactory.openSession();
-			int cnt = session.delete("updateMyPage", memId);
+			int cnt = session.delete("memberDelete", memId);
 			session.commit();
 			session.close();
 			return cnt;

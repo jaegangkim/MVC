@@ -33,12 +33,11 @@
 			<h1><a href="index.html">non-Spending</a> Challenge</h1>
 			<nav id="nav">
 				<ul>
-					<li><a href="${cpath}/index.do">Home</a></li>
+					<li><a href="${cpath}/mainForm.do">Home</a></li>
 					<li><a href="">Level</a></li>
 					<li><a href="${cpath}/board.do">Board</a></li>
 					<li><a href="">My Challenge</a></li>
-					<li><a href="">My Page</a></li>
-					<li><a href="login0822.html" class="button">Sign Up</a></li>
+					<li><a href="${cpath}/logout.do" class="button">Logout</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -56,10 +55,11 @@
 						
 					</header>
 				<h3>개인정보 수정</h3>
-				<form method="post" action="">
 					<div class="row gtr-uniform gtr-50 aaaa">
 						<div class="col-6 col-12-mobilep">
-							<input type="text" name="" id="name" value="" disabled placeholder="${memId}" /> <%-- ${mvo.memId} --%>
+						<form action="${cpath}/myPageEdit.do"><!-- 둘다 되나봐요.. 왜 이제 업데이트가 안되는지.. -->
+							<input type="text" name="memId" value="" id="name" disabled placeholder="${mvo.memId}" /> 
+							<input type="hidden" name="memId" value="${mvo.memId}" id="name"/> 
 						</div>
 						<div class="col-6 col-12-mobilep">
 							<input type="text" name="memPwd" id="name" value="" placeholder="비밀번호변경" />
@@ -69,7 +69,7 @@
 						</div>
 						<div class="col-6 col-12-mobilep">
 							<div class="div_float">
-								<input type="text" name="memName" id="name" value="" style="width: 250px;" placeholder="${memName}" />
+								<input type="text" name="memName" id="name" value="" style="width: 250px;" placeholder="${mvo.memName}" />
 							</div>
 							
 							<div class="div_float" style="margin-left: 10px;">
@@ -96,16 +96,17 @@
 					<div class="col-12" style="margin-top: 20px;">
 						<ul class="actions buttons_" style="float: right;">
 							<li><input type="submit" value="수정" /></li>
+							</form>
 							<li><input type="reset" value="취소" class="alt" /></li>
-							<li><a href="${cpath}/memberDelete.do"><input type="button" value="탈퇴"/></a></li>
+							<li><a href="${cpath}/memberDelete.do?memId=${memId}"><input type="button" value="탈퇴"/></a></li>
 							
 						</ul>
+						
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	</form>
 
 
 	</div>

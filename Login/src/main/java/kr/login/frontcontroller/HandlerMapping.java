@@ -30,7 +30,7 @@ public class HandlerMapping {
 			mappings.put("/mainForm.do", new MainFormController());
 			mappings.put("/totalboardForm.do", new TotalBoardFormController());
 			mappings.put("/totalboard.do", new TotalBoardController());
-			mappings.put("/edit.do", new MyPageEditController());
+			mappings.put("/myPageEdit.do", new MyPageEditController());
 			mappings.put("/myPage.do", new MyPageController());
 			mappings.put("/memberDelete.do", new MemberDeleteController());
 			mappings.put("/boardView.do", new BoardViewController());
