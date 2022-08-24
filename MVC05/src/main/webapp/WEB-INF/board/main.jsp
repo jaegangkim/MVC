@@ -24,9 +24,28 @@
   		});
   	}
   	function resultHtml(data){
-  		alert(data);
-  		// 동적인 view 만들기
+  		var html="<table class='table table-bordered'>";
+  		html+="<tr>";
+  		html+="<td>번호</td>";
+  		html+="<td>제목</td>";
+  		html+="<td>작성자</td>";
+  		html+="<td>작성일</td>";
+  		html+="<td>조회수</td>";
+  		html+="</tr>";
+  		
+  		$.each(data, function(index,obj){ 
+  			html+="<tr>";
+  	  		html+="<td>"+obj.num+"</td>";
+  	  		html+="<td>"+obj.title+"</td>";
+  	  		html+="<td>"+obj.writer+"</td>";
+  	  		html+="<td>"+obj.indate+"</td>";
+  	  		html+="<td>"+obj.count+"</td>";
+  	  		html+="</tr>";
+  		});  // 제이쿼리 반복문
+  		html+="</table>";
+  		$("#list").html(html);
   	}
+  	
   </script>
   
 </head>

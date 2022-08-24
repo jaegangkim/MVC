@@ -33,7 +33,7 @@ public class BoardMyBatisDAO {
 	public int boardWrite(Board vo) {
 		SqlSession session =sqlSessionFactory.openSession();
 		int cnt=session.insert("boardWrite", vo);
-		session.commit(); // 완료
+		session.commit(); 
 		session.close(); 
 		return cnt;
 	}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.login.dao.LoginMapper">
+	<select id="memberLogin" parameterType="kr.login.entity.Member" resultType="kr.login.entity.Member">
+		select * from member where memId=#{memId} and memPwd=#{memPwd}
+	</select>
+	<insert id="memberSignUp" parameterType="kr.login.entity.Member">
+		insert into member values(#{memId},#{memName},#{memPwd})
+	</insert>
+	<update id="updateMyPage" parameterType="kr.login.entity.Member">
+		update board set memPwd=#{memPwd}, memName=#{memName} where memId=#{memId}
+	</update>
+	<delete id="memberDelete">
+		delete * from member where memId=#{memId}
+	</delete>
+</mapper>
