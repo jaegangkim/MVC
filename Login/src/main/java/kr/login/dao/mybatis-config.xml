@@ -16,6 +16,9 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="kr/login/dao/LoginMapper.xml"/>
+    <mapper resource="kr/login/dao/MemberMapper.xml"/>
+    <mapper resource="kr/login/dao/BoardMapper.xml"/>
+    <mapper resource="kr/login/dao/ChallMapper.xml"/>
+    
   </mappers>
 </configuration>

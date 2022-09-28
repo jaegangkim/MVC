@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <!--properties 파일 위치-->
+  <properties resource="kr/dao/db.properties"/>
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+    <!-- mapper 파일 위치 -->
+    <mapper resource="kr/dao/BoardMapper.xml"/>
+    <mapper resource="kr/dao/CommentMapper.xml"/>
+    <mapper resource="kr/dao/SavePointMapper.xml"/>
+    <mapper resource="kr/dao/MemberMapper.xml"/>
+    <mapper resource="kr/dao/ChallMapper.xml"/>
+    <mapper resource="kr/dao/LevelMapper.xml"/>
+   
+  </mappers>
+</configuration>

@@ -3,22 +3,39 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
-		<item key="wholeword" value="false"/>
+		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="error"/>
+		<item key="selection" value="maven-"/>
 		<list key="findhistory">
-			<item value="error"/>
-			<item value="/Users/EGOVEDU/eGovFrame-3.10.0/"/>
+			<item value="maven-"/>
+			<item value="&gt;"/>
+			<item value="gson"/>
+			<item value="3주"/>
+			<item value="쇼핑"/>
+			<item value="노리"/>
+			<item value="s"/>
+			<item value="세이브"/>
+			<item value="Header"/>
+			<item value="header"/>
+			<item value="input"/>
+			<item value="form-contr"/>
+			<item value="text"/>
+			<item value="이제"/>
+			<item value="check"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1177"/>
-		<item key="DIALOG_Y_ORIGIN" value="356"/>
+		<item key="DIALOG_X_ORIGIN" value="53"/>
+		<item key="DIALOG_Y_ORIGIN" value="181"/>
 		<item key="DIALOG_WIDTH" value="340"/>
 		<item key="DIALOG_HEIGHT" value="454"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="686"/>
+		<item key="DIALOG_Y_ORIGIN" value="349"/>
 	</section>
 </section>

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.login.dao.BoardMyBatisDAO;
-import kr.login.entity.Board;
+import kr.login.entity.tbl_community;
 
 public class MainFormController implements Controller {
 
@@ -16,7 +16,7 @@ public class MainFormController implements Controller {
 	public String requestProcessor(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		BoardMyBatisDAO dao = new BoardMyBatisDAO();
-		List<Board> list = dao.topList();
+		List<tbl_community> list = dao.topList();
 		request.setAttribute("list", list);
 		
 		return "main";

@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kr.login.dao.LoginMyBatisDAO;
-import kr.login.entity.Member;
+import kr.login.dao.MemberMyBatisDAO;
+import kr.login.entity.tbl_member;
 
 public class IndexController implements Controller {
 
@@ -18,5 +18,4 @@ public class IndexController implements Controller {
 	
 		return "redirect:/mainForm.do";
 	}
-
 }

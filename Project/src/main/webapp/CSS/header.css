@@ -1,0 +1,42 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+html {
+  height:100%;
+  background-color: rgba(255, 255, 255, 0.808);
+}
+/*헤더 위 영역*/
+nav {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+nav ul {
+  text-align: center;
+  background: #141A35;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+nav ul li {
+  display: inline-block;
+}
+/*메뉴색*/
+nav ul li a {
+  padding: 16px;
+  font-family: "Open Sans";
+  text-transform:uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1px;
+  text-decoration: none;
+  display: block;
+}
+/*선택시*/
+nav ul li a:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+a {
+  text-decoration-line: none;
+}

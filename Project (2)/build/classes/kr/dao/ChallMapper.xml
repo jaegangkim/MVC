@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.dao.ChallMapper">
+	<insert id="insertChall" parameterType="kr.entity.tbl_member_challenge">
+		insert into tbl_member values(mc_seq.nextval,#{mb_id},#{chall_item_seq},#{pay_money},pay_date)
+	</insert>
+	
+</mapper>
+
+

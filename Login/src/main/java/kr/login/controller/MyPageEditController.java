@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kr.login.dao.LoginMyBatisDAO;
-import kr.login.entity.Member;
+import kr.login.dao.MemberMyBatisDAO;
+import kr.login.entity.tbl_member;
 
 public class MyPageEditController implements Controller {
 
@@ -19,25 +19,27 @@ public class MyPageEditController implements Controller {
 			throws ServletException, IOException {
 		
 		// 여기에 로그인된 memId를 가져와야됨...
-		String memId = request.getParameter("memId");
-		String memPwd = request.getParameter("memPwd");
-		String memPwd_confirm = request.getParameter("memPwd_confirm");
-		String memName = request.getParameter("memName");
+		String mb_id = request.getParameter("mb_id");
+		String mb_pw = request.getParameter("mb_pw");
+		String mb_pw_confirm = request.getParameter("mb_pw_confirm");
+		String mb_name = request.getParameter("mb_name");
+		int challenge_total = Integer.parseInt(request.getParameter("challenge_total"));
 		
+		MemberMyBatisDAO dao = new MemberMyBatisDAO(); 
 		
-		LoginMyBatisDAO dao = new LoginMyBatisDAO(); 
-		
-		Member m = new Member();
-		if (memPwd.equals(memPwd_confirm)) {
-			m.setMemPwd(memPwd);
-			m.setMemName(memName);
-			m.setMemId(memId);
+		tbl_member m = new tbl_member();
+		if (mb_pw.equals(mb_pw_confirm)) {
+			m.setMb_pw(mb_pw);
+			m.setMb_name(mb_name);
+			m.setMb_id(mb_id);
+			m.setChallenge_total(challenge_total);
+			
 			dao.updateMyPage(m);
 		
 		}
 		
 	
-		Member mvo = dao.memberLogin(m);
+		tbl_member mvo = dao.memberLogin(m);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("mvo", mvo);
@@ -45,13 +47,3 @@ public class MyPageEditController implements Controller {
 	}
 
 }
-
-//String memId = request.getParameter("memId");
-//String memPwd = request.getParameter("memPwd");                    이거랑 main 82번째줄 주석 지우면 '부적합한 열 유형: 1111' 나옴 
-//														           내일 이어서 해결해보기..저기용 네.... 검색 하려다가 먼가 될거 같아서 해봤는데 안돼요 ㅠㅠㅠ
-//Member m = new Member(); 
-//m.setMemId(memId);
-//
-//LoginMyBatisDAO dao = new LoginMyBatisDAO();
-//Member mvo = dao.memberLogin(m);
-//

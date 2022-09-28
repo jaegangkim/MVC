@@ -26,12 +26,12 @@
                                     <div class="card-body">
                                         <form action="${cpath}/login.do">
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" name="memId" id="inputEmail" type="text" placeholder="name@example.com" />
+                                                <input class="form-control" name="mb_id" id="inputEmail" type="text" placeholder="name@example.com" />
                                                
                                                 <label for="inputEmail">Email address</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" name="memPwd" id="inputPassword" type="password" placeholder="Password" />
+                                                <input class="form-control" name="mb_pw" id="inputPassword" type="password" placeholder="Password" />
                                                 <label for="inputPassword">Password</label>
                                             </div>
                                             <div class="form-check mb-3">

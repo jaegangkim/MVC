@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.dao.LoginMapper">
+	<select id="memberLogin" parameterType="kr.entity.tbl_member" resultType="kr.entity.tbl_member">
+		select * from tbl_member where mb_id=#{mb_id} and mb_pw=#{mb_pw}
+	</select>
+	<insert id="insertChall" parameterType="kr.entity.tbl_member_challenge">
+		insert into tbl_member_challenge values(#{mb_id},#{mb_name},#{mb_pw})
+	</insert>
+	<update id="updateMyPage" parameterType="kr.entity.tbl_member">
+		update tbl_member set mb_pw=#{mb_pw}, mb_name=#{mb_name}, challenge_total=#{challenge_total} where mb_id=#{mb_id}
+	</update>
+	<delete id="memberDelete">
+		delete from tbl_member where mb_id=#{mb_id}
+	</delete>
+</mapper>

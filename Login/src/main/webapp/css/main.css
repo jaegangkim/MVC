@@ -1,16 +1,6 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic");
 
-/*
-	Alpha by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
-/* Reset */
-
-/* Based on meyerweb.com/eric/tools/css/reset (v2.0 | 20110126 | License: public domain) */
-
 	html, body, div, span, applet, object,
 	iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 	pre, a, abbr, acronym, address, big, cite,
@@ -122,9 +112,15 @@
 		-webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-		border-bottom: dotted 1px;
+		
 		color: #141A35;
 		text-decoration: none;
+	}
+	#page {
+	margin-right: 5px;
+	text-align: center;
+	color:#141A35;
+	font-size: large;
 	}
 
 		a:hover {
@@ -491,7 +487,7 @@
 					color: #141A35;
 					cursor: pointer;
 					display: inline-block;
-					font-weight: 400;
+					font-weight: 300;
 					height: 3em;
 					line-height: 3em;
 					padding: 0 2em;
@@ -2181,6 +2177,7 @@
 		opacity: 0;
 		width: 1em;
 		z-index: -1;
+	
 	}
 
 		input[type="checkbox"] + label,
@@ -2218,25 +2215,25 @@
 				content: '';
 				display: inline-block;
 				font-size: 0.8em;
-				height: 2.25em;
+				height: 1.5em;
 				left: 0;
 				line-height: 2.25em;
 				position: absolute;
 				text-align: center;
 				top: 0;
-				width: 2.25em;
+				width: 1.5em;
 			}
 
 		input[type="checkbox"]:checked + label:before,
 		input[type="radio"]:checked + label:before {
-			background: #AED3FF;
-			border-color: #AED3FF;
+			background: #f2ff03;
+			border-color: #f2ff03;
 		}
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			border-color: #AED3FF;
-			box-shadow: 0 0 0 1px #AED3FF;
+			border-color: #f2ff03;
+			box-shadow: 0 0 0 1px #b0b0b0;
 		}
 
 	input[type="checkbox"] + label:before {
@@ -2419,7 +2416,12 @@
 		.icon.brands:before {
 			font-family: 'Font Awesome 5 Brands';
 		}
-
+		.icon{
+			left: 23%;
+			top: 660px;
+		
+			position: absolute;
+		}
 		.icon.major {
 			background: #666;
 			border-radius: 100%;
@@ -2588,6 +2590,14 @@
 			width: 100%;
 			margin-left: 0;
 		}
+		ul.actions.special_board {
+			-moz-justify-content: center;
+			-webkit-justify-content: center;
+			-ms-justify-content: center;
+			justify-content: end;
+			width: 100%;
+			margin-left: 0;
+		}
 
 			ul.actions.special li:first-child {
 				padding-left: 0;
@@ -2666,7 +2676,7 @@
 						padding-top: 0;
 					}
 
-					ul.actions:not(.fixed) li input[type="submit"],
+					ul.actions:not(.fixed) li input[type="`"],
 					ul.actions:not(.fixed) li input[type="reset"],
 					ul.actions:not(.fixed) li input[type="button"],
 					ul.actions:not(.fixed) li button,
@@ -3185,15 +3195,56 @@
 
 	#banner {
 		background-attachment: scroll,							fixed;
-		background-color: #141A35;
-		
+		/*background-color: #141A35;*/
+		background-size: 800% 800%;
 		background-position: top left,						center center;
 		background-repeat: repeat,							no-repeat;
 		background-size: auto,							cover;
 		color: #fff;
 		padding: 12em 0 20em 0;
 		text-align: center;
+		-webkit-animation: AnimationName 16s ease infinite;
+-moz-animation: AnimationName 16s ease infinite;
+-o-animation: AnimationName 16s ease infinite;
+animation: AnimationName 16s ease infinite;
 	}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+#banner {
+  color: #fff;
+  background: linear-gradient(-45deg, #1CD6CE, #141A35,#2B4865 , #77777C);
+  background-size: 400% 400%;
+  animation: AnimationName 15s ease infinite;
+  width: 100%;
+  height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  top: 35%;
+  text-align: center;
+}
+
 
 		#banner :last-child {
 			margin-bottom: 0;
@@ -3940,18 +3991,255 @@
       .modal_body {
         position: absolute;
         top: 50%;
-        left: 50%;
-
-        width: 400px;
-        height: 600px;
-
+        left: 41%;
         padding: 40px;
-
+		width: 550px;
+		height: 800px;
         text-align: center;
-
-        background-color: rgb(255, 255, 255);
         border-radius: 10px;
         box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
-
+		
         transform: translateX(-50%) translateY(-50%);
       }
+
+	  /*로그인 모달*/
+	  .btn-open-popup_login{
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		background-color: #FAF4FF;
+		border-radius: 6px;
+		color: #141A35;
+
+	
+		cursor: pointer;
+		display: inline-block;
+		font-weight: 300px;
+		height: 2.5em;
+		line-height: 2.5em;
+		padding: 0 2em;
+		  
+		  }
+	  .comm_comment{
+		margin: 15%;
+	  }
+
+	  * {
+		box-sizing: border-box;
+		}
+		.wrap {
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		  }
+		 
+		
+		
+		body {
+		font-size: 14px;
+		}
+		input[type=text], input[type=password] {
+		border: 2px solid #141A35;
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		
+		box-sizing: border-box;
+		}
+		
+		
+		
+		
+		.card_login-body {
+		  margin-top: 30px;
+		  flex: 1 1 auto;
+		  padding: 1rem 1rem;
+		}
+		
+		
+		
+		.btn-primary_login {
+		  position: absolute;
+		  top:340px;
+		  left: 150px;
+		  -moz-appearance: none;
+				-webkit-appearance: none;
+				-ms-appearance: none;
+				appearance: none;
+				-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+				-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+				-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+				transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+				background-color: #AED3FF;
+				border-radius: 6px;
+				border: 0;
+				color: #ffffff;
+				cursor: pointer;
+				display: inline-block;
+				font-weight: 400;
+				height: 3em;
+				line-height: 3em;
+				padding: 0 2em;
+				text-align: center;
+				text-decoration: none;
+				white-space: nowrap;
+		}
+		.btn-primary_login:hover {
+		  color: #fff;
+		  background-color: #141A35;
+		  border-color: #141A35;
+		}
+		.btn-check:focus + .btn-primary, .btn-primary:focus {
+		  color: #fff;
+		  background-color: #141A35;
+		  border-color: #141A35;
+		  box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
+		}
+		.btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+		  color: #fff;
+		  background-color: #141A35;
+		  border-color: #141A35;
+		}
+		.btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
+		  box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
+		}
+		.btn-primary:disabled, .btn-primary.disabled {
+		  color: #fff;
+		  background-color: #141A35;
+		  border-color: #141A35;
+		}
+		
+		
+		.login_title{
+		  font-size: 30px;
+		}
+		.modal_login {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		
+		  width: 100%;
+		  height: 100%;
+		
+		  display: none;
+		
+		  background-color: rgba(0, 0, 0, 0.4);
+		}
+		
+		.modal_login.show {
+		  display: block;
+		}
+		
+		.modal_login_body {
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		
+		  width: 380px;
+		  height: 450px;
+		  padding: 40px;
+		  text-align: center;
+		  background-color: rgb(255, 255, 255);
+		  border-radius: 10px;
+		  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+		
+		  transform: translateX(-50%) translateY(-50%);
+		}
+* {
+box-sizing: border-box;
+}
+.wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+ 
+
+
+body {
+font-size: 14px;
+}
+input[type=text], input[type=password] {
+border: 2px solid #141A35;
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+
+box-sizing: border-box;
+}
+
+
+
+
+.card_login-body {
+  margin-top: 30px;
+  flex: 1 1 auto;
+  padding: 1rem 1rem;
+}
+
+
+
+.btn-primary_login {
+  position: absolute;
+  top:300px;
+  left: 150px;
+  -moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		background-color: #AED3FF;
+		border-radius: 6px;
+		border: 0;
+		color: #ffffff;
+		cursor: pointer;
+		display: inline-block;
+		font-weight: 400;
+		height: 3em;
+		line-height: 3em;
+		padding: 0 2em;
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+}
+.btn-primary_login:hover {
+  color: #fff;
+  background-color: #141A35;
+  border-color: #141A35;
+}
+.btn-check:focus + .btn-primary, .btn-primary:focus {
+  color: #fff;
+  background-color: #141A35;
+  border-color: #141A35;
+  box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
+}
+.btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #141A35;
+  border-color: #141A35;
+}
+.btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
+}
+.btn-primary:disabled, .btn-primary.disabled {
+  color: #fff;
+  background-color: #141A35;
+  border-color: #141A35;
+}
+
+
+.login_title{
+  font-size: 30px;
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gjai.mapper.BoardMapper"> <!-- 이 xml을 쓰는 interface이름 -->
+	<select id="getList" resultType="BoardVO">
+	     select * from reboard order by boardGroup desc, boardSequence asc
+	</select>
+	<insert id="insert" parameterType="BoardVO">
+		insert into reboard(idx,memId, title, contents, writer, boardGroup,
+		boardSequence,boardLevel,boardAvailable)
+		select IFNULL(max(idx)+1,1) ,#{memId},#{title},#{contents},#{writer},
+		IFNULL(max(boardGroup)+1,0),0,0,1
+		from reboard
+	</insert>
+	<!-- <select id="boardView" resultType="com.gjai.entity.BoardVO">
+		select * from board where idx=#{idx}
+	</select> --><!-- BoardMapper.java에 어노테이션으로 작성 했음. -->
+	<update id="update" parameterType="BoardVO">
+		update reboard set title=#{title}, contents=#{contents} where idx=#{idx}
+	</update>
+	<select id="getLogin" resultType="Member" parameterType="Member">
+		select * from member where memId=#{memId} and memPwd=#{memPwd}
+	</select>
+	
+	<update id="replyUpdate" parameterType="BoardVO">
+		update reboard set boardSequence=boardSequence+1
+		where boardGroup=#{boardGroup} and boardSequence > #{boardSequence}
+	</update>
+	<insert id="replyInsert">
+      insert into reboard(idx,  memId, title, contents, writer, boardGroup, boardSequence,boardLevel, boardAvailable)
+      select IFNULL(max(idx)+1,1),#{memId},#{title},#{contents},#{writer},#{boardGroup},#{boardSequence},#{boardLevel},1
+      from reboard
+   </insert>
+</mapper>

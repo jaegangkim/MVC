@@ -5,6 +5,8 @@ import java.util.HashMap;
 import kr.login.controller.TotalBoardController;
 import kr.login.controller.TotalBoardFormController;
 import kr.login.controller.BoardViewController;
+import kr.login.controller.ChallengeController;
+import kr.login.controller.ChallengeFormController;
 import kr.login.controller.Controller;
 import kr.login.controller.MyPageEditController;
 import kr.login.controller.IndexController;
@@ -34,7 +36,9 @@ public class HandlerMapping {
 			mappings.put("/myPage.do", new MyPageController());
 			mappings.put("/memberDelete.do", new MemberDeleteController());
 			mappings.put("/boardView.do", new BoardViewController());
-		}
+			mappings.put("/challenge.do", new ChallengeController());
+			mappings.put("/challengeForm.do", new ChallengeFormController());
+		} 
 		public Controller getController(String command) {
 			// command -> key
 			// 일치하는 것을 찾아줌

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.dao.ChallMapper">
+	<insert id="insertChall" parameterType="kr.entity.tbl_member_challenge"> 
+		insert into tbl_member_challenge values(TBL_MEMBER_CHALLENGE_SEQ.nextval,#{mb_id},#{chall_item_seq},#{pay_money},sysdate)
+	</insert>
+	
+	<select id="sumMonPay" parameterType="String" resultType="kr.entity.sumMonthPay"> <!-- 월별 mb_id의 pay_money 합산 -->
+	select TO_CHAR(pay_date, 'YYYYMMDD') as day, sum(pay_money) as sumPay from tbl_member_challenge
+where (pay_date between '20220801' and to_char(sysdate+1,'YYYYMMDD')) and mb_id=#{mb_id} GROUP BY to_char(pay_date, 'YYYYMMDD') order by day</select> 
+	<select id="sumItemPay" parameterType="String" resultType="kr.entity.sumMonthPay">
+		select chal_item_seq as item, sum(pay_money) as sumPay, TO_CHAR(pay_date, 'YYYYMMDD') as day from tbl_member_challenge
+where (pay_date between '20220101' and to_char(sysdate+1,'YYYYMMDD')) and mb_id=#{mb_id} GROUP BY to_char(pay_date,'YYYYMMDD'), chal_item_seq order by day
+	</select>
+	
+	<!-- <select id="월별 mb_id의 chall_item_seq의 pay_money 합산">
+	select TO_CHAR(pay_date, 'YYYYMM') as 날짜, sum(pay_money) from tbl_member_challenge
+where pay_date >='20220101' and pay_date <= to_char(sysdate,'YYYYMMDD') and mb_id=${mb_id} and chal_item_seq=#{chal_item_seq} GROUP BY to_char(pay_date, 'YYYYMM');
+	</select>
+	<select id="현재 월의 mb_id의 pay_money 합산">
+		 select TO_CHAR(sysdate,'MM') as 월, sum(pay_money) FROM tbl_member_challenge where mb_id='mb_id 06' group by TO_CHAR(sysdate,'MM');
+		 
+	</select>
+	<select id="현재 월의 mb_id의 chall_item_seq의 pay_money 합산">
+		select TO_CHAR(SYSDATE,'MM') as 월, sum(pay_money) FROM tbl_member_challenge where mb_id=#{mb_id} and CHAL_ITEM_SEQ=#{chal_item_seq} group by TO_CHAR(SYSDATE,'MM'); 
+	</select> -->
+	 
+</mapper>

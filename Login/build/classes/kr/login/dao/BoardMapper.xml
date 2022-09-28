@@ -3,10 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="kr.login.dao.BoardMapper">
-  	<select id="topList" resultType="kr.login.entity.Board">
-		SELECT * from board order by count desc
+  	<select id="topList" resultType="kr.login.entity.tbl_community">
+		SELECT * from tbl_community order by comm_cnt desc
 	</select>
-	 <select id="boardView" resultType="kr.login.entity.Board"> 
- 	select * from board where num=#{num}
+	 <select id="boardView" resultType="kr.login.entity.tbl_community"> 
+ 	select * from tbl_community where comm_seq=#{comm_seq}
  	</select>
+ 	<update id="updateCount"> 
+		update tbl_community set comm_cnt=comm_cnt+1 where COMM_SEQ=#{COMM_SEQ}
+	</update>
   </mapper>

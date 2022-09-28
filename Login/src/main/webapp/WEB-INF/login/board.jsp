@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+1<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
@@ -36,13 +36,13 @@
 			<!-- Main -->
 				<section id="main" class="container">
 					<header>
-						<h2 id="title">${vo.title}</h2>
-						<p id="write">${vo.writer}</p>
-						<div id="date">${vo.indate}</div>
+						<h2 id="title">${vo.comm_title}</h2>
+						<p id="write">${vo.mb_id}</p>
+						<div id="date">${vo.comm_date}</div>
 					</header>
 					<div class="box">
 							<div class="row-6 row-12-mobilep">
-								<p>${vo.content}</p>
+								<p>${vo.comm_content}</p>
 							</div>
 						</div>
 					</div>

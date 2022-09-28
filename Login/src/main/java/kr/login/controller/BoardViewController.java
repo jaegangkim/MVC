@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.login.dao.BoardMyBatisDAO;
-import kr.login.entity.Board;
+import kr.login.entity.tbl_community;
 
 public class BoardViewController implements Controller {
 
@@ -18,7 +18,8 @@ public class BoardViewController implements Controller {
 		
 		BoardMyBatisDAO dao = new BoardMyBatisDAO();
 		int num = Integer.parseInt(request.getParameter("num"));
-		Board vo = dao.boardView(num);
+		tbl_community vo = dao.boardView(num);
+		dao.updateCount(num);
 		request.setAttribute("vo",vo);
 		return "board";
 	}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"><!-- mapper태그에 dtd를정의했기에 mapper의 태그이름을 바꾸면 안된다 -->
+<mapper namespace="kr.dao.LevelMapper"> <!-- 패키지이름 + 파일이름 경로가 아닌 이름이기에 /가 아닌 .을 붙인 것 -->
+   <select id = "levelList" resultType="kr.entity.Tbl_Level_Community" parameterType="kr.entity.Tbl_Level_Community"><!-- id : DAO의 메소드이름 -->
+    select l.LV_SEQ, l.LV_TITLE, l.LV_CONTENT, l.LV_DATE, m.MB_ID, l.LV_CNT, m.MB_name
+	from TBL_LEVEL_COMMUNITY_${level} l INNER JOIN TBL_MEMBER m on l.mb_id = m.mb_id
+	order by LV_SEQ ASC
+  </select>
+  <select id="levelMyChart" resultType="int" parameterType="kr.entity.Mb_Level">
+	select round((m.challenge_total - sum(c.pay_money) )/m.challenge_total*100)
+from tbl_member m, tbl_member_challenge c 
+where m.mb_id = c.mb_id and pay_date between '22/08/01' and '22/09/07'
+and m.mb_id = #{mb_id}
+group by m.mb_id,m.challenge_total
+</select>
+<select id="levelChart" resultType="int" parameterType="kr.entity.Mb_Level" >
+select round(avg(a),1) from (select m.mb_level, m.mb_id,(m.challenge_total - sum(c.pay_money) )/m.challenge_total*100 a
+from tbl_member m, tbl_member_challenge c 
+where m.mb_id = c.mb_id and pay_date between '22/08/01' and '22/09/07'
+group by m.mb_level, m.mb_id,m.challenge_total)
+where mb_level = ${mb_level}
+group by mb_level
+</select>
+
+<select id="rankingList" parameterType="kr.entity.Mb_Level" resultType="kr.entity.Mb_Level" >
+select distinct m.mb_name,round((m.challenge_total - sum(c.pay_money) )/m.challenge_total*100,1) a
+from tbl_member m, tbl_member_challenge c 
+where m.mb_id = c.mb_id and pay_date between '22/08/01' and '22/09/07'
+and m.mb_level = ${mb_level}
+group by m.mb_name,m.challenge_total
+order by a desc 
+</select>
+   
+  <insert id = "levelWrite" parameterType="kr.entity.Tbl_Level_Community">
+    INSERT INTO TBL_LEVEL_COMMUNITY_${level} (lv_seq, lv_title, lv_content, lv_date, mb_id, lv_cnt) VALUES 
+    (TBL_LEVEL_COMMUNITY_${level}_SEQ.nextval,#{lv_title}, #{lv_content}, sysdate, #{mb_id},0) 
+  </insert>
+  <select id = "levelView" parameterType="kr.entity.Tbl_Level_Community" resultType="kr.entity.Tbl_Level_Community">
+    select l.LV_SEQ, l.LV_TITLE, l.LV_CONTENT, l.LV_DATE, l.mb_id, m.mb_name, l.LV_cnt
+	from TBL_LEVEL_COMMUNITY_${level} l
+	INNER JOIN TBL_MEMBER m on l.mb_id = m.mb_id
+	where LV_SEQ = #{lv_seq} 
+  </select>
+  <update id = "levelUpdate" parameterType="kr.entity.Tbl_Level_Community">
+  	UPDATE tbl_level_community_${level} set lv_title = #{lv_title}, lv_content= #{lv_content} where lv_seq= #{lv_seq}
+  </update>
+  <delete id = "levelDelete" parameterType="kr.entity.Tbl_Level_Community">
+  	Delete from TBL_LEVEL_COMMUNITY_${level} where lv_SEQ = #{lv_seq}
+  </delete>
+  <!-- 댓글부분 -->
+  <select id="lv_comm_AllList" parameterType="kr.entity.tbl_level_comment" resultType="kr.entity.tbl_level_comment">
+  	Select l.lv_seq, l.lv_cmt_seq, l.lv_cmt_content,l.mb_id, m.mb_name from tbl_level_comment_${level} l inner join TBL_MEMBER m on l.mb_id = m.mb_id
+  	where LV_SEQ = #{lv_seq}
+  </select>
+  <insert id = "Tbl_Level_Community_comm" parameterType='kr.entity.tbl_level_comment'>
+   INSERT INTO TBL_LEVEL_COMMENT_${level}(LV_CMT_SEQ,LV_SEQ,LV_CMT_CONTENT,LV_CMT_DATE,MB_ID)
+	values (TBL_LV_COMMENT_SEQ_${level}.nextval,#{lv_seq},#{lv_cmt_content},SYSDATE,#{mb_id})
+  </insert>
+</mapper>

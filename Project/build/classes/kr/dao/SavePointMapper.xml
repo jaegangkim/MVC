@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"><!-- mapper태그에 dtd를정의했기에 mapper의 태그이름을 바꾸면 안된다 -->
+<mapper namespace="kr.dao.CommentMapper"> <!-- 패키지이름 + 파일이름 경로가 아닌 이름이기에 /가 아닌 .을 붙인 것 -->
+  
+  <!-- 해당 SQL을 메소드와 연결해서 처리. id : 메소드명, resulttype : return, parameter type : 매개변수 -->
+  <select id = "savePointAllList" resultType = "kr.entity.SavePoint"><!-- id : DAO의 메소드이름 -->
+    <!-- 게시판 번호에 맞는 댓글만 보여준다 -->
+    select * from TBL_SAVE_POINT
+  </select>
+  <select id = "savePointView" resultType = "kr.entity.SavePoint" parameterType="int">
+    select * from TBL_SAVE_POINT where SAVE_SEQ = #{SAVE_SEQ}
+  </select>
+</mapper>

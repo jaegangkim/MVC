@@ -2,20 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
- <head>
-  <link href="https://fonts.googleapis.com/css?family=Habibi&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/main2.css">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
 	<head>
 		<title>무지출챌린지</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="./main.css" />
+		<link rel="stylesheet" href="css/main.css">
     	<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 		<meta name="description" content="" />
 		<meta name="author" content="" />
@@ -64,62 +62,74 @@
 	<h1><a href="index.html">non-Spending</a> Challenge</h1>
 	<nav id="nav">
 		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li><a href="index.html">Level</a></li>
-			<li><a href="index.html">Board</a></li>
-			<li><a href="index.html">My Challenge</a></li>
-			<li><a href="index.html">My Page</a></li>
-			<li><a href="#" class="button">Sign Up</a></li>
+			<li><a href="">Home</a></li>
+			<li><a href="">Level</a></li>
+			<li><a href="${cpath}/totalboard.do">Board</a></li>
+			<li><a href="">My Challenge</a></li>
+
+			
+			<c:if test="${empty mvo}">
+		    	<li><a href="${cpath}/loginForm.do" class="button">Login</a></li>
+		    </c:if>
+		    <c:if test="${!empty mvo}">
+		   		<li><a href="${cpath}/myPage.do?mb_id=${mvo.mb_id}">My Page</a></li>
+			    <li><a href="${cpath}/logout.do" class="button">Logout</a></li>
+		    </c:if>
+			
 		</ul>
 	</nav>
 </header>
-
-
+  
 			<!-- Banner -->
 				<section id="banner">
 					<h2>Welcome </br>non-Spending Challenge</h2>
-					<p>무지출챌린지를 시작해보세요</p>
-						<button class="btn-open-popup" id="btn_inputMoney">지출 입력하기</button>
+					<c:if test="${empty mvo}">
+				    	<p>무지출챌린지를 시작해보세요</p>
+				    </c:if>
+				    <c:if test="${!empty mvo}">
+					    <p>${mvo.mb_name}님 환영합니다.</p>
+					    <button class="btn-open-popup" id="btn_inputMoney">지출 입력하기</button> 
+				    </c:if>
 				</section>
+				<form action="${cpath}/challenge.do">
+				<input type="hidden" name="mb_id" value="${mvo.mb_id}"/>
 				<div class="modal">
 					<div class="modal_body">
 						<h2>지출 입력</h2>
 						<div class="col-12">
-							<input type="text" id="user_inputMoney" value="" placeholder="지출액을 입력하세요" />
+							<input type="text" id="user_inputMoney" name="pay_money" placeholder="지출액을 입력하세요" />
 						</br>
 							<div class="col-4 col-12-narrower">
-								<input type="radio" id="shopping" name="priority" checked="">
-								<label for="shopping">쇼핑</label>
+								<input type="radio" id="shopping" name="choice" value="1">
+								<label for="shopping" name="shopping">쇼핑</label>
 							</div>
 							<div class="col-4 col-12-narrower">
-								<input type="radio" id="food" name="priority">
-								<label for="food">식비</label>
+								<input type="radio" id="food" name="choice" value="2">
+								<label for="food" name="food">식비</label>
 							</div>
 							<div class="col-4 col-12-narrower">
-								<input type="radio" id="live" name="priority">
-								<label for="live">주거</label>
+								<input type="radio" id="live" name="choice" value="3">
+								<label for="live" name="live">여가</label>
 							</div>
 							<div class="col-4 col-12-narrower">
-								<input type="radio" id="trans" name="priority">
-								<label for="trans">교통</label>
+								<input type="radio" id="trans" name="choice" value="4">
+								<label for="trans" name="trans">교통</label>
 							</div>
 							<div class="col-4 col-12-narrower">
-								<input type="radio" id="etc" name="priority">
-								<label for="etc">기타</label>
+								<input type="radio" id="etc" name="choice" value="5">
+								<label for="etc" name="etc">기타</label>
 							</div>
 							<div class="col-12">
 								<ul class="actions special">
 									<li><input type="submit" value="입력하기" id= "input_Money"/></li>
 								</ul>
 							</div>
-							<form>
-								
-							</form>
 						</div>
 				
 					</div>
 			  
 				  </div>
+				  </form>
 
 
 <!--글목록-->
@@ -138,32 +148,14 @@
 								<th>작성자</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<td>1</td>
-								<td><a href="">오늘 무지출챌린지 현황</a></td>
-								<td>궁상이</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td><a href="">도지코인 기사님 온다</a></td>
-								<td>머스크</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td><a href="">오늘 가입했어요</a></td>
-								<td>지출이</td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td><a href="">영상 봐줄사람</a></td>
-								<td>한문철</td>
-							</tr>
-							<tr>
-								<td>5</td>
-								<td><a href="">프로젝트 캐리 후기</a></td>
-								<td>이윤호</td>
-							</tr>
+						<tbody>   
+							<c:forEach var="i" begin="1" end="5" step="1">
+							  <tr>
+								<td>${i}</td>
+								<td><a href="${cpath}/boardView.do?num=${list[i-1].comm_seq}">${list[i-1].comm_title}</a></td>
+								<td>${list[i-1].mb_id}</td>
+							  </tr>
+							</c:forEach>
 						</tbody>
 						
 					</table>
@@ -193,74 +185,8 @@
 				}
 			  }
 			});
+			
 		  </script>
 	
 	</body>
 </html>
-
-
-
-
-
-
-
-
-<!-- 
-<body>
-    <div class="v38_35">
-        <div class="v38_3">
-            <a class="v30_7" href="">Home</a>
-            <a class="v30_8" href="">Level</a>
-            <a class="v30_9" href="${cpath}/board.do">Board</a>
-            <a class="v33_12" href="">My
-Challenge</a>
-<a class="v38_2" href="">My
-    Page</a>
-</div>
-<div class="v38_15">
-    <span class="v38_5">Hot Issue</span>
-    <div class="v38_7"></div>
-    <div class="v38_8"></div>
-    <div class="v38_10"></div>
-    <div class="v38_14"></div>
-    <div class="v38_9"></div>
-</div>
-<div class="v38_16"><div class="v30_6"></div><span class="v38_12">non - 
-    Spending
-    Challenge</span>
-     <c:if test="${empty mvo}">
-    <a class="v38_31" href="${cpath}/loginForm.do">LOGIN</a><a class="v38_32" href="${cpath}/signupForm.do">JOIN</a></div><div class="v38_33"><div class="v38_20"></div>
-    </c:if>
-    <c:if test="${!empty mvo}">
-    <form action="${cpath}/logout.do">
-    <a name="memName">${mvo.memName}</a>
-    <button type="submit">Logout</button>
-    </form> 
-    </c:if>
-    <select class="v38_21">
-    <option disabled selected>2022</option>
-  </select>
-  <select class="v38_25">
-    <option >선택</option>
-    <option  value="cloth">옷</option>
-    <option  value="food">식비</option>
-    <option  value="live">주거</option>
-    <option  value="trans">교통</option>
-    <option  value="ect">기타</option>
-  </select>
-    <input class="v38_26" id="user_inputMoney" placeholder="금액을 입력하세요" />
-    
-    <select class="v38_23">
-    <option disabled selected>09</option>
-    </select>
-    <select class="v38_24">
-      <option disabled selected>05</option>
-      </select>
-
-      <div class="wrap">
-        <button class="button">입력</button>
-      </div>
-
-
-    <span class="v38_19">Quick Input</span></div><div class="v38_30"></div><span class="v30_5">non-Spending     
-    Challenge</span></div></body></html> <br/><br/> -->

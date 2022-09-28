@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.dao.MemberMapper">
+	<select id="memberLogin" parameterType="kr.entity.tbl_member" resultType="kr.entity.tbl_member">
+		select * from tbl_member where mb_id=#{mb_id} and mb_pw=#{mb_pw}
+	</select>
+	<update id="updateMyPage" parameterType="kr.entity.tbl_member">
+		update tbl_member set mb_pw=#{mb_pw}, challenge_total=#{challenge_total} where mb_id=#{mb_id}
+	</update>
+</mapper>

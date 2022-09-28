@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gjai.mapper.BoardMapper"> <!-- 이 xml을 쓰는 interface이름 -->
+	<select id="boardList" resultType="com.gjai.entity.BoardVO">
+		select * from board order by idx desc
+	</select>
+	<insert id="boardInsert" parameterType="com.gjai.entity.BoardVO">
+		insert into board(title, contents, writer) values(#{title},#{contents},#{writer})
+	</insert>
+	<!-- <select id="boardView" resultType="com.gjai.entity.BoardVO">
+		select * from board where idx=#{idx}
+	</select> --><!-- BoardMapper.java에 어노테이션으로 작성 했음. -->
+	<update id="boardUpdate" parameterType="com.gjai.entity.BoardVO">
+		update board set title=#{title}, contents=#{contents} where idx=#{idx}
+	</update>
+</mapper>
