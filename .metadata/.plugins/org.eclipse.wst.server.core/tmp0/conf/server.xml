@@ -150,7 +150,7 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 		<Context docBase="C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\eGovFrame-4.0.0\workspace.edu\WEBProject\webapp" path="/web"/> 
 		<Context docBase="C:\Users\aischool\Desktop\imgs" path="/imgs"/>
-      <Context docBase="C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SpringMVC06" path="/member" reloadable="true" source="org.eclipse.jst.jee.server:SpringMVC06"/></Host>
+      <Context docBase="C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SpringTest" path="/bshop" reloadable="true" source="org.eclipse.jst.jee.server:SpringTest"/></Host>
     </Engine>
   </Service>
 </Server>

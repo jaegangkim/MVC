@@ -150,7 +150,7 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 		<Context docBase="C:\eGovFrame-4.0.0\workspace.edu\WEBProject\webapp" path="/web"/> 
 		<Context docBase="C:\Users\aischool\Desktop\imgs" path="/imgs"/>
-      <Context docBase="SpringMVC06" path="/member" reloadable="true" source="org.eclipse.jst.jee.server:SpringMVC06"/></Host>
+      <Context docBase="SpringTest" path="/bshop" reloadable="true" source="org.eclipse.jst.jee.server:SpringTest"/></Host>
     </Engine>
   </Service>
 </Server>

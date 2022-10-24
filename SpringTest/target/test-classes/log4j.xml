@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="kr.smhrd.controller">
+	<logger name="kr.book.bshop">
 		<level value="info" />
 	</logger>
 	
